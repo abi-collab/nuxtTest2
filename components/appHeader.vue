@@ -1,25 +1,10 @@
 <template lang="pug">
-  #header
-    header.header
-      nav.navbar.navbar-expand-lg.fixed-top.py-3
-        .container
-        a.navbar-brand.text-uppercase.font-weight-bold(href='#') Transparent Nav
-        button.navbar-toggler.navbar-toggler-right(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-          i.fa.fa-bars
-        #navbarSupportedContent.collapse.navbar-collapse
-            ul.navbar-nav.ml-auto
-            li.nav-item.active
-              a.nav-link.text-uppercase.font-weight-bold(href='#')
-                | Home 
-              span.sr-only (current)
-            li.nav-item
-              a.nav-link.text-uppercase.font-weight-bold(href='#') About
-            li.nav-item
-              a.nav-link.text-uppercase.font-weight-bold(href='#') Gallery
-            li.nav-item
-              a.nav-link.text-uppercase.font-weight-bold(href='#') Portfolio
-            li.nav-item
-              a.nav-link.text-uppercase.font-weight-bold(href='#') Contact
+  .header
+    a.logo(href='#default') CompanyLogo
+    .header-right
+      a.active(href='#home') Home
+      a(href='#contact') Contact
+      a(href='#about') About
 </template>
 <script>
 export default {
@@ -28,3 +13,57 @@ export default {
     },
 }
 </script>
+<style scoped>
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+</style>
